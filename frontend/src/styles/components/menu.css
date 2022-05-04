@@ -1,0 +1,43 @@
+ul {
+  display: flex;
+  
+  list-style-type: none;
+  margin-left: 50px;
+  margin-top: 20px;
+
+  float: left;
+}
+
+li {
+  margin-right: 40px;
+}
+
+.text {
+  text-decoration: none;
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #121212;
+}
+
+.selected-text {
+  text-decoration: none;
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #121212;
+}
