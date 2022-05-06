@@ -6,7 +6,7 @@ import "../styles/components/logo.css"
 export default function Logo() {
   return (
     <div id="main-logo">
-      <text>CRUD</text>
+      <h1>CRUD</h1>
       <div>
         <Icon className="icon" icon="jam:write" />
         <Icon className="icon" icon="jam:ghost-org-square" />

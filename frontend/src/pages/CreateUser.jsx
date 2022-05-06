@@ -19,6 +19,10 @@ export default function CreateUser() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+
+    if(ci === '' || nombre === '' || apellido === '' || direccion === '' || telefono === ''|| nacimiento === ''){
+      return alert("Campo invalido");
+    }
     
     await api.post('/user', {
       ci: ci,
@@ -30,6 +34,12 @@ export default function CreateUser() {
     });
 
     alert("¡Usuario cadastrado exitosamente!")
+    setCi('');
+    setNombre('');
+    setApellido('');
+    setDireccion('');
+    setTelefono('');
+    setNacimiento('');
   }
 
   return (
@@ -56,6 +66,7 @@ export default function CreateUser() {
                     id="ci"
                     value={ci}
                     onChange={event => setCi(event.target.value)}
+                    type="number"
                   />
                 </div>
                 <div className="input-block">

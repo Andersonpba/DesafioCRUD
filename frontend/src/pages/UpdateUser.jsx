@@ -1,5 +1,4 @@
-import { useState } from "react";
-import DatePicker from "react-datepicker";
+import { useState, useEffect } from "react";
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -7,15 +6,29 @@ import api from "../services/api"
 
 import Menu from "../components/menu";
 import Logo from "../components/logo";
+import { useLocation } from "react-router-dom";
 
 
 export default function UpdateUser() {
+  const location = useLocation();
+
   const [ci, setCi] = useState('');
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
   const [direccion, setDireccion] = useState('');
   const [telefono, setTelefono] = useState('');
   const [nacimiento, setNacimiento] = useState('');
+
+  useEffect(() => {
+    if(location.state !== undefined) {
+      setCi(location.state.ci);
+      setNombre(location.state.nombre);
+      setApellido(location.state.apellido);
+      setDireccion(location.state.direccion);
+      setTelefono(location.state.telefono);
+      setNacimiento(location.state.fecha_nacimiento.split('T')[0]);
+    }
+  }, [location])
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -29,7 +42,13 @@ export default function UpdateUser() {
       fecha_nacimiento: nacimiento,
     });
 
-    alert("¡Usuario actualizado exitosamente!")
+    alert("¡Usuario editado exitosamente!")
+    setCi('');
+    setNombre('');
+    setApellido('');
+    setDireccion('');
+    setTelefono('');
+    setNacimiento('');
   }
 
   return (
@@ -43,7 +62,7 @@ export default function UpdateUser() {
         <form onSubmit={handleSubmit} className="">
           <fieldset>
             <h2>
-              ACTUALIZAR
+              EDITAR
             </h2>
             <h1>
               USUARIO
@@ -56,6 +75,7 @@ export default function UpdateUser() {
                     id="ci"
                     value={ci}
                     onChange={event => setCi(event.target.value)}
+                    type="number"
                   />
                 </div>
                 <div className="input-block">
@@ -95,14 +115,14 @@ export default function UpdateUser() {
                 </div>
                 <div className="input-block">
                   <label htmlFor="nacimiento">FECHA DE<br/>NACIMIENTO</label>
-                  <DatePicker selected={nacimiento} onChange={setNacimiento}/>
+                  <input value={nacimiento} onChange={event => setNacimiento(event.target.value)}/>
                 </div>
               </div>
             </div>
           </fieldset>
 
           <button className="confirm-button" type="submit">
-            ACTUALIZAR
+            EDITAR
           </button>
         </form>
       </main>

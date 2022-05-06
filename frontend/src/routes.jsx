@@ -8,12 +8,12 @@ import DeleteUser from "./pages/DeleteUser";
 
 function Routes(){
   return(
-    <BrowserRouter>
+    <BrowserRouter forceRefresh={true}>
       <Switch>
-        <Route path="/crear" component={CreateUser} />
         <Route path="/listar" component={ListUsers} />
-        <Route path="/actualizar" component={UpdateUser} />
+        <Route path="/editar" component={UpdateUser} />
         <Route path="/deletar" component={DeleteUser} />
+        <Route path="/" component={CreateUser} />
       </Switch>
     </BrowserRouter>
   )
