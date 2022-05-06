@@ -10,8 +10,8 @@
   
  # Puertas utilizados
  ## Backend
-   5432  
-   3333  
+   5432  (postgres)
+   3333  (backend_app)
  
  ## Frontend
    3000
@@ -21,10 +21,9 @@
    1- git clone https://github.com/Andersonpba/DesafioCRUD.git  
    2- Abra la carpeta "backend" en el terminal  
    3- "npm install"  
-   4- "docker build -t usercrud ."  
-   5- "docker-compose up"  
-   6- "docker-compose start"  
-   7- "npm typeorm migration:run"  
-   8- "npm install"  
+   6- "docker-compose up"  
+   7- "docker-compose start"  
+   8- "npm typeorm migration:run"  
    9- Abra la carpeta "frontend" en el terminal  
-   10- "npm start"  
+   10- "npm install"  
+   11- "npm start"  
