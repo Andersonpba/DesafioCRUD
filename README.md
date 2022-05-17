@@ -21,7 +21,7 @@
    1- git clone https://github.com/Andersonpba/DesafioCRUD.git  
    2- Abra la carpeta "backend" en el terminal  
    3- "npm install"  
-   4- "docker build -t nome ."
+   4- "docker build -t nome ."  
    5- "docker-compose up"  
    6- "docker-compose start"  
    7- "npm typeorm migration:run"  
